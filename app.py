@@ -34,5 +34,37 @@ class Arithmetic():
 			'result': request.json['a'] + request.json['b']
 		}), 200
 
+	@app.route('/compute/arithmetic/subtract', methods = ['POST'])
+	def subtract():
+		if not request.json: abort(400)
+		return jsonify({
+			'status': 'success',
+			'result': request.json['a'] - request.json['b']
+		}), 200
+
+	@app.route('/compute/arithmetic/divide', methods = ['POST'])
+	def divide():
+		if not request.json: abort(400)
+		return jsonify({
+			'status': 'success',
+			'result': request.json['a'] / request.json['b']
+		}), 200
+
+	@app.route('/compute/arithmetic/multiply', methods = ['POST'])
+	def multiply():
+		if not request.json: abort(400)
+		return jsonify({
+			'status': 'success',
+			'result': request.json['a'] * request.json['b']
+		}), 200
+
+	@app.route('/compute/arithmetic/mod', methods = ['POST'])
+	def mod():
+		if not request.json: abort(400)
+		return jsonify({
+			'status': 'success',
+			'result': request.json['a'] % request.json['b']
+		}), 200
+
 if __name__ == '__main__':
 	app.run(debug = True)
